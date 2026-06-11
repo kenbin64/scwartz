@@ -3,32 +3,34 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Schwarz Diamond · minimal material, maximum surface</title>
-<meta name="description" content="The Schwarz Diamond is a real minimal surface: the least material that carries the most surface, self-supporting and strong. As a principle, it is doing the most with the least, the idea behind deriving instead of storing and cutting AI tokens.">
+<meta name="description" content="The Schwarz Diamond is a real minimal surface: the least material that carries the most surface, self-supporting and strong. As a principle it is doing the most with the least, the idea behind deriving instead of storing and cutting AI tokens.">
 <link rel="canonical" href="https://schwartzdiamond.com/">
 <style>
-:root{--bg:#0b0f16;--panel:#141b24;--edge:#283441;--txt:#eaf0f8;--mut:#8e9cad;--acc:#8fd0ff;--ok:#5fd39a;--gold:#e3b86b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -8%,#16273b,#0b0f16 58%);color:var(--txt);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.65;min-height:100vh}
-.wrap{max-width:840px;margin:0 auto;padding:36px 22px 70px}
-.who{font-family:ui-monospace,monospace;color:var(--acc);font-size:12px;letter-spacing:2px;text-transform:uppercase}
-h1{font-size:40px;letter-spacing:-.6px;margin:10px 0 4px;line-height:1.1}
-.lead{color:var(--acc);font-family:ui-monospace,monospace;font-size:14px;letter-spacing:1px;margin-bottom:14px}
-.lede{color:var(--mut);font-size:16.5px;max-width:680px;line-height:1.7}.lede b{color:var(--txt)}
-h2{font-size:22px;margin:46px 0 10px;border-top:1px solid var(--edge);padding-top:26px}
+:root{--bg:#06060f;--panel:#141b24;--edge:#2a3850;--txt:#eaf0f8;--mut:#9fb0c4;--acc:#7cf3ff;--green:#5fe39a;--gold:#e3b86b;--purple:#c79aff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.65;min-height:100vh}
+#bg{position:fixed;inset:0;z-index:0;display:block}
+.wrap{position:relative;z-index:1;max-width:840px;margin:0 auto;padding:36px 22px 70px}
+.who{font-family:ui-monospace,monospace;color:var(--acc);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 18px rgba(124,243,255,.5)}
+h1{font-size:42px;letter-spacing:-.6px;margin:10px 0 4px;line-height:1.1;text-shadow:0 2px 24px rgba(0,0,0,.7)}
+.lead{color:var(--gold);font-family:ui-monospace,monospace;font-size:14px;letter-spacing:1px;margin-bottom:14px;text-shadow:0 0 16px rgba(227,184,107,.4)}
+.lede{color:#cdd9e8;font-size:16.5px;max-width:660px;line-height:1.7;text-shadow:0 1px 12px rgba(0,0,0,.8)}.lede b{color:#fff}
+h2{font-size:22px;margin:46px 0 10px;border-top:1px solid var(--edge);padding-top:26px;text-shadow:0 2px 14px rgba(0,0,0,.7)}
 .sub{color:var(--mut);font-size:14px;max-width:680px;margin:0 0 18px}
 .uses{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:680px){.uses{grid-template-columns:1fr}}
-.use{background:var(--panel);border:1px solid var(--edge);border-radius:12px;padding:14px 16px}
+.use{background:rgba(15,22,34,.74);backdrop-filter:blur(6px);border:1px solid var(--edge);border-radius:12px;padding:14px 16px}
 .use h3{margin:0 0 5px;font-size:15.5px}.use h3 small{display:block;color:var(--acc);font-family:ui-monospace,monospace;font-size:11.5px;font-weight:400;letter-spacing:.5px;margin-top:3px}
-.use p{margin:0;font-size:13.5px;color:var(--mut)}
-.use a{color:var(--acc);text-decoration:none;font-size:12.5px}
+.use p{margin:0;font-size:13.5px;color:var(--mut)}.use a{color:var(--acc);text-decoration:none;font-size:12.5px}
 .tag{display:inline-block;font-family:ui-monospace,monospace;font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;border-radius:5px;padding:2px 7px}
 .est{color:#06140c;background:#5fd39a}.mine{color:#1a1410;background:#e3b86b}
-.bound{background:#1a1410;border:1px solid #5a4326;border-left:3px solid #d9a441;border-radius:11px;padding:14px 18px;color:#e8d4b2;font-size:14px;line-height:1.6;margin-top:24px}
+.bound{background:rgba(26,20,16,.82);backdrop-filter:blur(6px);border:1px solid #5a4326;border-left:3px solid #d9a441;border-radius:11px;padding:14px 18px;color:#e8d4b2;font-size:14px;line-height:1.6;margin-top:24px}
 .bound b{color:#ffd98a}
-.foot{margin-top:34px;border-top:1px solid var(--edge);padding-top:18px;color:#6c7c8c;font-size:12.5px;line-height:1.6}
+.foot{margin-top:34px;border-top:1px solid var(--edge);padding-top:18px;color:#7e90a6;font-size:12.5px;line-height:1.6}
 a.inline{color:var(--acc)}
 </style>
 </head>
-<body><div class="wrap">
+<body>
+<canvas id="bg"></canvas>
+<div class="wrap">
 
   <div class="who">⨳ schwartzdiamond.com</div>
   <h1>Schwarz Diamond</h1>
@@ -41,10 +43,10 @@ a.inline{color:var(--acc)}
   <h2>The same shape, in four places</h2>
   <p class="sub">The surface is established geometry (<span class="tag est">Established</span>). Reading it as a working principle across these is the framing (<span class="tag mine">Mine</span>), and each one is real and runnable.</p>
   <div class="uses">
-    <div class="use"><h3>In storage<small>minimal definition, maximum data</small></h3><p>Keep a small definition and derive the rest on demand, instead of storing it all. The disk holds the seed, not the field.</p><a href="https://valuesai.online/derive.html" target="_blank" rel="noopener">Derive, don't store →</a></div>
-    <div class="use"><h3>In AI cost<small>minimal tokens, maximum meaning</small></h3><p>Shrink any text or code to the fewest tokens that still carry the meaning, so a model reads less and you pay less.</p><a href="https://valuesai.online/token-minimizer.html" target="_blank" rel="noopener">AI Token Minimizer →</a></div>
-    <div class="use"><h3>In a question<small>minimal words, maximum signal</small></h3><p>Ask with only the load-bearing words, at the dimension you want, and the answer comes back tight, correct, and cheap.</p><a href="https://dimensionalprogramming.com/the-focused-query.html" target="_blank" rel="noopener">The Focused Query →</a></div>
-    <div class="use"><h3>In structure<small>minimal material, maximum strength</small></h3><p>The reason it works at all: a minimal surface is self-supporting. Take away the props and the filler, and the form still stands.</p><a href="https://dimensionalprogramming.com/the-shape-of-things.html" target="_blank" rel="noopener">The thinking →</a></div>
+    <div class="use"><h3>In storage<small>minimal definition, maximum data</small></h3><p>Keep a small definition and derive the rest on demand, instead of storing it all. The disk holds the seed, not the field.</p><a href="https://valuesai.online/derive.html" target="_blank" rel="noopener">Derive, don't store &rarr;</a></div>
+    <div class="use"><h3>In AI cost<small>minimal tokens, maximum meaning</small></h3><p>Shrink any text or code to the fewest tokens that still carry the meaning, so a model reads less and you pay less.</p><a href="https://valuesai.online/token-minimizer.html" target="_blank" rel="noopener">AI Token Minimizer &rarr;</a></div>
+    <div class="use"><h3>In a document<small>minimal padding, maximum substance</small></h3><p>Cut the fluff, flag what is weak or unsupported, keep only what holds. A tighter, harder document.</p><a href="https://valuesai.online/harden.html" target="_blank" rel="noopener">Schwarz Diamond Hardener &rarr;</a></div>
+    <div class="use"><h3>In a question<small>minimal words, maximum signal</small></h3><p>Ask with only the load-bearing words, at the dimension you want, and the answer comes back tight, correct, and cheap.</p><a href="https://dimensionalprogramming.com/the-focused-query.html" target="_blank" rel="noopener">The Focused Query &rarr;</a></div>
   </div>
 
   <div class="bound">
@@ -59,5 +61,89 @@ a.inline{color:var(--acc)}
     Schwarz Diamond &middot; minimal material, maximum surface &middot; schwartzdiamond.com
     <br><br>Concept and direction: Kenneth W. Bingham. Built with the help of Claude AI under a standing directive to be skeptical, to insist on proof, and to allow no claim that is not demonstrated in tested code. The ideas are the author's; the AI implemented and verified them, it did not originate them.
   </div>
-</div></body>
+</div>
+
+<script>
+(function () {
+  var cv = document.getElementById('bg'), x = cv.getContext('2d'), W, H, t = 0, stars = [];
+  function resize() { W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; initStars(); }
+  function initStars() {
+    stars = []; var n = Math.min(240, Math.floor(W * H / 8500)), pal = ['#ffffff', '#ffffff', '#cfe9ff', '#7cf3ff', '#5fe39a', '#e3b86b', '#c79aff'];
+    for (var i = 0; i < n; i++) stars.push({ x: Math.random() * W, y: Math.random() * H * 0.5, r: Math.random() * 1.3 + 0.3, a: Math.random() * 6.28, sp: Math.random() * 0.03 + 0.006, c: pal[Math.floor(Math.random() * pal.length)] });
+  }
+  function glow(cx, cy, r, col) { var g = x.createRadialGradient(cx, cy, 0, cx, cy, r); g.addColorStop(0, col); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(cx - r, cy - r, r * 2, r * 2); }
+  function galaxy(cx, cy, rot) {
+    x.save(); x.translate(cx, cy); x.rotate(rot);
+    for (var k = 1; k < 150; k++) {
+      var rad = k * 0.62, ang = k * 0.30 + (k % 2) * Math.PI;
+      var px = Math.cos(ang) * rad, py = Math.sin(ang) * rad * 0.46;
+      x.globalAlpha = Math.max(0, 0.65 - rad / 110);
+      x.fillStyle = k % 3 === 0 ? '#c79aff' : (k % 3 === 1 ? '#7cf3ff' : '#ffffff');
+      x.fillRect(px, py, 1.7, 1.7);
+    }
+    x.globalAlpha = 1; x.restore();
+  }
+  // The Schwarz Diamond as a height field: an interwoven minimal-surface ripple.
+  function heightAt(xx, zz) {
+    return 0.55 * Math.sin(xx * 0.9 + t * 0.12) * Math.cos(zz * 0.7) + 0.30 * Math.sin(xx * 0.45 - zz * 0.5 + t * 0.08);
+  }
+  // First-person flythrough: the camera glides forward and its height tracks the
+  // surface beneath it, so it rides up and over every contour. Segments are sorted
+  // into a few colour buckets and each bucket is stroked once, so the whole mesh
+  // costs a handful of draws per frame.
+  function fabric() {
+    var cols = 30, rows = 28, cellX = 0.42, cellZ = 0.5, fov = Math.min(W, H) * 0.95,
+        horizon = H * 0.46, near = 0.6, clearance = 1.5, far = near + rows * cellZ;
+    var worldZ0 = t * 0.9, camX = 1.6 * Math.sin(t * 0.08), camY = heightAt(camX, worldZ0 + 2.0) + clearance;
+    var P = [];
+    for (var zi = 0; zi <= rows; zi++) {
+      var dz = near + zi * cellZ, wz = worldZ0 + dz, line = [];
+      for (var xi = 0; xi <= cols; xi++) {
+        var wx = (xi - cols / 2) * cellX, wy = heightAt(wx, wz);
+        line.push([W / 2 + ((wx - camX) / dz) * fov, horizon - ((wy - camY) / dz) * fov, wy, dz]);
+      }
+      P.push(line);
+    }
+    var B = { cyan: [], green: [], purple: [], gold: [], dim: [] };
+    function add(a, b) {
+      var h = a[2], fade = 1 - a[3] / far, k;
+      if (fade < 0.30) k = 'dim'; else if (h > 0.34) k = 'cyan'; else if (h < -0.34) k = 'purple'; else if (Math.abs(h) > 0.18) k = 'gold'; else k = 'green';
+      B[k].push(a[0], a[1], b[0], b[1]);
+    }
+    for (var z2 = 0; z2 < P.length; z2++) for (var x2 = 0; x2 < P[z2].length; x2++) {
+      var p = P[z2][x2];
+      if (x2 < P[z2].length - 1) add(p, P[z2][x2 + 1]);
+      if (z2 < P.length - 1) add(p, P[z2 + 1][x2]);
+    }
+    var styles = { cyan: 'rgba(124,243,255,0.42)', green: 'rgba(95,227,154,0.32)', purple: 'rgba(199,154,255,0.40)', gold: 'rgba(227,184,107,0.40)', dim: 'rgba(120,150,200,0.09)' };
+    x.lineWidth = 1;
+    for (var key in B) {
+      var arr = B[key]; if (!arr.length) continue;
+      x.strokeStyle = styles[key]; x.beginPath();
+      for (var i = 0; i < arr.length; i += 4) { x.moveTo(arr[i], arr[i + 1]); x.lineTo(arr[i + 2], arr[i + 3]); }
+      x.stroke();
+    }
+  }
+  function draw() {
+    t += 0.01;
+    var g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#0a0a1e'); g.addColorStop(0.55, '#0b1226'); g.addColorStop(1, '#05050d');
+    x.fillStyle = g; x.fillRect(0, 0, W, H);
+    glow(W * 0.72, H * 0.20, 300, 'rgba(160,90,255,0.10)');
+    glow(W * 0.20, H * 0.34, 240, 'rgba(0,200,255,0.07)');
+    // sun
+    var sx = W * 0.80, sy = H * 0.15, sg = x.createRadialGradient(sx, sy, 0, sx, sy, 130);
+    sg.addColorStop(0, 'rgba(255,244,214,0.95)'); sg.addColorStop(0.3, 'rgba(227,184,107,0.45)'); sg.addColorStop(1, 'rgba(227,184,107,0)');
+    x.fillStyle = sg; x.beginPath(); x.arc(sx, sy, 130, 0, 6.283); x.fill();
+    x.fillStyle = '#fff7e6'; x.beginPath(); x.arc(sx, sy, 13, 0, 6.283); x.fill();
+    galaxy(W * 0.24, H * 0.20, t * 0.05);
+    for (var i = 0; i < stars.length; i++) { var s = stars[i]; s.a += s.sp; x.globalAlpha = 0.35 + 0.65 * Math.abs(Math.sin(s.a)); x.fillStyle = s.c; x.beginPath(); x.arc(s.x, s.y, s.r, 0, 6.283); x.fill(); }
+    x.globalAlpha = 1;
+    fabric();
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize(); draw();
+})();
+</script>
+</body>
 </html>
